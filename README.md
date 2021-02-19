@@ -1,76 +1,111 @@
-![ExpressJS 4 Starter](https://github.com/aredo/express4-bootstrap-starter/raw/master/public/apple-touch-icon-144-precomposed.png)
 
-ExpressJS 4 Starter
-==========================
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aredo/express4-bootstrap-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+## Installation
 
+1. You need `Node.js` (at least 10.x version) installed on your machine, if you don't have it, you should install it - download [link](https://nodejs.org/en/download/)
+2. [Clone the project from github](https://github.com/creativetimofficial/argon-dashboard-nodejs) or [download the archive](https://github.com/creativetimofficial/argon-dashboard-nodejs)
+3. `cd` to your downloaded Argon app
+4. Install necessary dependencies:
+    - **Via node `npm` package manager** - Run `npm install` on the project root
+    - **Via `yarn` package manager** - Run `yarn install` on the project root
 
-Lightweight Bootstrap NodeJS Apps Build Using ExpressJS 4, MongoDB/Mongoose, Authentication with Passport.js, Jade and GruntJS as Task Automation
+## Configuration for PostgreSQL database and Redis data structure store
 
-[![Build Status](https://travis-ci.org/aredo/express4-bootstrap-starter.svg?branch=master)](https://travis-ci.org/aredo/express4-bootstrap-starter)
-[![Dependencies Status](https://david-dm.org/aredo/express4-bootstrap-starter.png)](https://david-dm.org/aredo/express4-bootstrap-starter)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+##### Via Docker
 
-## Install
+1. Install **Docker** on your machine
+2. Run `docker-compose up -d` in a terminal on the project root. This will start 3 containers:
+    - database(PostgreSQL) container;
+    - redis container - required for session management;
+    - haproxy container - required only for a staging/production setup;
 
-### Prerequisites
-- Node.js - Download and Install Node.js with [NVM](https://github.com/creationix/nvm) (Node Version Manager) - Simple bash script to manage multiple active node.js versions.
-- MongoDB - Download and Install [MongoDB](http://www.mongodb.org/) - Make sure it's running on the default port.
+##### Via another chosen solution.
 
-### Tool Prerequisites
+1. Install your **PostgreSQL** database
+2. Install your **Redis** server
+3. Change connection configuration, from your root `cd` to `env-files` folder and change the following configurations with your own:
 
-- [NPM](https://npmjs.org) - Node.js package manager, should be installed when you install node.js. NPM (Node Package Manager) will look at the [package.json](https://github.com/jpotts18/mean-stack-relational/blob/master/package.json) file in the root of the project and download all of the necessary dependencies and put them in a folder called ```node_modules```
-- [Genghis](http://genghisapp.com/) - The single-file MongoDB admin app
-
-### Javascript Tools Used
-- [Grunt](http://gruntjs.com/) - In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes. After you've configured it, a Grunt can do most of that mundane work for you—and your team—with basically zero effort.
-
-
-**NOTE:**
-After installing  Node.js and MongoDB server has running, then its time to run your server (this app!).
-
+###### **For PostgreSQL connection:**
+1. Database connection via URL
+```bash
+DATABASE_URL=http://creativeTim:creativeTim@127.0.0.1:5432/creativeTim
+# Example: DATABASE_URL=http://<user>:<password>@<host>/<database_name>
 ```
-  $   git clone git@github.com:aredo/express4-bootstrap-starter.git       \
-  &&  cd express4-bootstrap-starter                                       \
-  &&  npm install                                                         \
-  &&  cp app/config/config.example.js app/config/config.js                \
-  &&  grunt                                                               \
-  &&  open http://localhost:3001/
-```
-
-Then visit [http://localhost:3001/](http://localhost:3001/) (if not taken automatically)
-
-
-### NPM Modules Used
-- [Express](http://expressjs.com/) - Express is a minimal and flexible node.js web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications.
-- [Passport](http://passportjs.org/) - Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
-- [Mongoose](mongoosejs.com/docs/api.html) - Elegant [MongoDB](http://www.mongodb.org/) object modeling for **Node.JS**. Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
-- [LESS.JS](http://lesscss.org/) - Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow variables, mixins, functions and many other techniques that allow you to make CSS that is more maintainable, themable and extendable.
-
-
-### Directory structure
-
-```
--app/
-  |__config/
-  |__controllers/
-  |__helper
-  |__models/
-  |__mailer/
-  |__views/
-  |__routes
-
--public/
-  |__css (all files will generate from Grunt)
-  |__js
-  |__less
-  |__fonts
-  |__img
-  favicon.ico
--Grunfile.coffee
+2. Database connection via credentials
+```bash
+DATABASE_HOST=127.0.0.1
+DATABASE_PORT=5432
+DATABASE_NAME=creativeTim
+DATABASE_USER=creativeTim
+DATABASE_PASSWORD=creativeTim
 ```
 
+######  **For Redis connection:**
+1. REDIS connection via URL
+```bash
+REDIS_URL=redis://:@127.0.0.1:6379
+# Example: redis://:<password>@<host>:<port>
+```
+2. REDIS connection via credentials
+```bash
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+REDIS_PASSWORD=
+```
 
-# Troubleshooting
+## Migrations and seeds
 
-During install some of you may encounter some issues feel free to contact me [@hengkiardo](http://twitter.com/hengkiardo) or submit [issue](https://github.com/aredo/express4-bootstrap-starter/issues). via the repository issue tracker or the links provided below. I am also available on twitter [@hengkiardo](http://twitter.com/hengkiardo).
+1. For database tables structure, in the project root run: `npm run knex migrate:latest` or `yarn knex migrate:latest` if you are using `yarn` as the default package manager
+2. To create a default user, run: `npm run knex seed:run` or `yarn knex seed:run` if you are using `yarn` as the default package manager
+
+## Run the application
+
+1. For starting the application, the following script (defined in `package.json` under `scripts`) must be called:
+    - via **npm**: `npm run start` or `npm run dev` for starting the development environment, which has livereload enabled;
+    - via **yarn**: `yarn start` or `yarn dev` for starting the development environment, which has livereload enabled;
+
+
+## Usage
+
+Register a user or login using **admin@argon.com**:**secret** and start testing the preset (make sure to run the migrations and seeds for these credentials to be available).
+
+Besides the dashboard and the auth pages this preset also has an edit profile page.
+**NOTE**: _Keep in mind that all available features can be viewed once you login using the credentials provided above or by registering your own user._
+
+## Features
+
+In order to see the available features `cd` into `features` folder, and you will then find a folder for each of the available features, mostly each folder containing:
+
+- A `routes.js` file that usually contains the `GET` and `POST` requests, for example, the profile router looks like this:
+
+```javascript
+const { wrap } = require('async-middleware');
+
+const requestBodyValidation = require('./commands/verify-request-body');
+const updateUserInfo = require('./commands/update-user-info');
+const { loadPage } = require('./commands/profile');
+
+module.exports = (router, middlewares = []) => {
+  router.get('/profile', middlewares.map(middleware => wrap(middleware)), wrap(loadPage));
+  router.post('/update-profile-info', wrap(requestBodyValidation), wrap(updateUserInfo));
+
+  return router;
+};
+```
+
+- A `repository.js` file that contains feature database queries
+- A `commands` folder where you can find all feature functionality functions, for example the login template rendering which looks like this:
+
+```javascript
+function loadPage(req, res) {
+  debug('login:loadPage', req, res);
+  res.render('pages/login');
+}
+```
+- A `constants.js` file, to store all your static variables, for eg:
+
+```
+const USERNAME_PASSWORD_COMBINATION_ERROR = 'These credentials do not match our records.';
+const INTERNAL_SERVER_ERROR = 'Something went wrong! Please try again.';
+```
+
+All feature routes are mounted in `routes/index.js` from the project root.

@@ -1,5 +1,4 @@
 // Full Documentation - https://docs.turbo360.co
-const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
 const express = require('express')
 const path = require('path')
 const controllers = require('./controllers')
@@ -9,7 +8,6 @@ const config = {
 	static: 'public', 	// Set static assets directory
 	logging: true,
 	controllers: controllers,
-	db: vertex.nedbConfig((process.env.TURBO_ENV=='dev') ? 'nedb://'+path.join(__dirname, process.env.TMP_DIR) : 'nedb://'+process.env.TMP_DIR)
 }
 
 const app = express()

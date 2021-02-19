@@ -1,2 +1,0 @@
-# ryanbulcher.com
-# ryanbulcher.com

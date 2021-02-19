@@ -1,68 +1,27 @@
-require('dotenv').config({
-  path: `./env-files/${process.env.NODE_ENV || 'development'}.env`,
-});
+// Full Documentation - https://docs.turbo360.co
+const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
+const express = require('express')
+const path = require('path')
+const controllers = require('./controllers')
 
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const RedisStore = require('connect-redis')(session);
-
-const initAuthMiddleware = require('./features/login/init-auth-middleware');
-const indexRouter = require('./routes/index');
-
-const redisStoreConfig = {
-  host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT,
-};
-
-if (process.env.REDIS_URL) {
-  redisStoreConfig.url = process.env.REDIS_URL; // this will use the REDIS_URL required for logging into the Redis addon provided by Heroku
+const config = {
+	views: 'views', 	// Set views directory
+	static: 'public', 	// Set static assets directory
+	logging: true,
+	controllers: controllers,
+	db: vertex.nedbConfig((process.env.TURBO_ENV=='dev') ? 'nedb://'+path.join(__dirname, process.env.TMP_DIR) : 'nedb://'+process.env.TMP_DIR)
 }
 
-if (process.env.REDIS_PASSWORD) {
-  redisStoreConfig.password = process.env.REDIS_PASSWORD; // this will use the REDIS_PASSWORD if required
-}
+const app = express()
 
-const redisStore = new RedisStore(redisStoreConfig);
+vertex.configureApp(app, config)
 
-const app = express();
+app.use(vertex.setContext(process.env))
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// import routes
+const page = require('./routes/page')
 
-app.enable('trust proxy');
+// set routes
+app.use('/', page)
 
-const { COOKIE_EXPIRATION_MS } = process.env;
-app.use(
-  session({
-    store: redisStore,
-    secret: 'keyboard cat',
-    name: process.env.SESSION_COOKIE_NAME,
-    resave: false,
-    saveUninitialized: true,
-    proxy: true,
-    cookie: {
-      secure: process.env.NODE_ENV === 'production',
-      expires: Date.now() + parseInt(COOKIE_EXPIRATION_MS, 10),
-      maxAge: parseInt(COOKIE_EXPIRATION_MS, 10),
-    },
-  })
-);
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', req.headers.origin);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept'
-  );
-  next();
-});
-
-initAuthMiddleware(app);
-
-app.use('/', indexRouter);
-
-module.exports = app;
+module.exports = app

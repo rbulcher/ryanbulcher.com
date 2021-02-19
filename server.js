@@ -1,4 +1,3 @@
-const http = require('http');
 const express = require('express');
 const path = require('path');
 const { env } = require('process');
@@ -12,4 +11,3 @@ app.use('/', function(req,res){
   });
 const port = 3000;
 app.listen(port || process.env.PORT);
-console.debug('Server listening on port ' + port);

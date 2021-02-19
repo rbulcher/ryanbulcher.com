@@ -10,4 +10,4 @@ app.use('/', function(req,res){
     //__dirname : It will resolve to your project folder.
   });
 const port = 3000;
-app.listen(port || process.env.PORT);
+app.listen(process.env.PORT || port);

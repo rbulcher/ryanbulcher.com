@@ -242,10 +242,9 @@ body {font-family: "Lato", sans-serif}
             <i class="fa fa-envelope" style="width:30px"> </i> Email: rjbulcher@gmail.com<br>
         </div>
         <div class="w3-col m6">
-            <form action="php/contact.php" method="post">
+            <form action="mail_handler.php" method="post">
                 First Name: <input type="text" name="first_name"><br>
-                Last Name: <input type="text" name="last"><br>
-                Subject: <input type="text" name="subject"><br>
+                Last Name: <input type="text" name="last_name"><br>
                 Email: <input type="text" name="email"><br>
                 Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>
                 <input type="submit" name="submit" value="Submit">

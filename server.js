@@ -22,7 +22,7 @@ const mailOptions = {
   from: req.body.email,
   to: 'rjbulcher@gmail.com',
   subject: req.body.subject,
-  text: `Message From ${req.body.person}:\n\n${req.body.message}`
+  text: `Message From ${req.body.person}:\n${req.body.email}\n\n${req.body.message}`
 }
 transporter.sendMail(mailOptions, (error, info)=> {
   if(error){

@@ -8,6 +8,10 @@
     border-radius: 5px;
     padding: 10px;
   }
+
+  .header {
+    text-align: center;
+  }
   
   .message-form, .loading {
     width: 50%;

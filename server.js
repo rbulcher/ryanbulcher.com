@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const mongodb = require('mongodb').MongoClient;
 const uri = "mongodb+srv://RyanBulcher:Bulcher01@cluster0.bcshh.mongodb.net/messages?retryWrites=true&w=majority";
 const monk = require('monk');
 const nodemailer = require('nodemailer')
@@ -9,7 +8,20 @@ const { env, getMaxListeners } = require('process');
 const { cursorTo } = require('readline');
 const app = express();
 
+const MongoClient = require('mongodb').MongoClient;
+
+MongoClient.connect(uri, function(err, client) {
+   if(err) {
+        console.log('Error occurred while connecting to MongoDB Atlas...\n',err);
+   }
+   console.log('Connected...');
+   const collection = client.db("test").collection("devices");
+   // perform actions on the collection object
+   client.close();
+});
+
 const db = monk(uri || 'localhost/messager')
+
 const messages = db.get('messages');
 
 app.use(cors());
@@ -48,7 +60,7 @@ transporter.sendMail(mailOptions, (error, info)=> {
 
 app.use('/chatroom.html', (req,res) => {
   res.json({
-    mesage: 'MEssage update?!'
+    mesage: 'Message update?!'
   })
 });
 

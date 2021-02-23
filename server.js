@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://RyanBulcher:Bulcher01@cluster0.bcshh.mongodb.net/messages?retryWrites=true&w=majority";
 const monk = require('monk');
 const nodemailer = require('nodemailer')
@@ -7,18 +8,6 @@ const path = require('path');
 const { env, getMaxListeners } = require('process');
 const { cursorTo } = require('readline');
 const app = express();
-
-const MongoClient = require('mongodb').MongoClient;
-
-MongoClient.connect(uri, function(err, client) {
-   if(err) {
-        console.log('Error occurred while connecting to MongoDB Atlas...\n',err);
-   }
-   console.log('Connected...');
-   const collection = client.db("test").collection("devices");
-   // perform actions on the collection object
-   client.close();
-});
 
 const db = monk(uri || 'localhost/messager')
 

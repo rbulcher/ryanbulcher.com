@@ -6,13 +6,47 @@
   <title>Chat Room </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+      
 </head>
 <body>
-  <header>
-    <h1 class="title">Chat Room!</h1>
-  </header>
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="http://ryanbulcher.com/index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="http://ryanbulcher.com/index.html#projects" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROJECTS</a>
+        <a href="http://ryanbulcher.com/index.html#resume" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RESUME</a>
+        <a href="http://ryanbulcher.com/index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+        <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">Downloads</a>
+            <a target="__blank" href="https://github.com/rbulcher" class="w3-bar-item w3-button">Github</a>
+            <a href="http://ryanbulcher.com/lolpage.html" class="w3-bar-item w3-button">LoL Data</a>
+            <a href="http://ryanbulcher.com/chatroom.html" class="w3-bar-item w3-button">Message Board</a>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="http://ryanbulcher.com/index.html#projects" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROJECTS</a>
+    <a href="http://ryanbulcher.com/index.html#resume" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RESUME</a>
+    <a href="http://ryanbulcher.com/index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+    <a href="http://ryanbulcher.com/lolpage.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOL DATA</a>
+    <a href="http://ryanbulcher.com/chatroom.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MESSAGE BOARD</a>
+    </div>
+  <div style="padding-top: 5vh;"class="">
   <main>
-    <form class="mew-form">
+    <form class="message-form">
       <div class="error-message">
       </div>
       <label for="name">Name</label>
@@ -21,9 +55,8 @@
       <textarea class="u-full-width" type="text" id="content" name="content"></textarea>
       <button type="submit" class="button-primary">Send</button>
     </form>
-    <div class="mews">
-
     </div>
+  </div>
     <div class="button-container">
       <!-- <button id="loadMoreButton" class="button-primary" style="visibility: hidden">Load More Mews</button> -->
       <p id="loadMore"></p>

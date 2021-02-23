@@ -3,13 +3,13 @@
   }
   
   .error-message {
-    background: #ff9b9b;
+    
     color: white;
     border-radius: 5px;
     padding: 10px;
   }
   
-  .mew-form, .loading {
+  .message-form, .loading {
     width: 50%;
     margin: 0 auto;
   }
@@ -18,26 +18,26 @@
     text-align: center;
   }
   
-  .mews {
+  .messages {
     width: 80%;
     margin: 0 auto;
   }
   
-  .mews > div {
+  .messages > div {
     background: hsl(0, 0%, 95%);
     padding: 12px;
     border-radius: 4px;
   }
   
-  .mews > div > h3 {
+  .messages > div > h3 {
     word-wrap: break-word;
   }
   
-  .mews > div > p {
+  .messages > div > p {
     word-wrap: break-word;
   }
   
-  .mews > div:not(:last-child) {
+  .messages > div:not(:last-child) {
     margin-bottom: 8px;
   }
   

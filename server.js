@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const {MongoClient} = require('mongodb');
-const uri = "mongodb+srv://ryanbulcher:Bulcher01@messagedb.g3una.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const uri = "mongodb+srv://ryanbulcher:Bulcher01@chatdb.e3hwj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const monk = require('monk');
 
 
@@ -66,13 +66,13 @@ app.get('/messages', (req,res)=> {
 
 
 function isValidMessage(message) {
-  return true;
-  // return message.name && message.name.toString().trim() !== '' && message.content && message.content.toString().trim() !== '';
+  return message.name && message.name.toString().trim() !== '' && message.name.toString().trim().length <= 50 &&
+  message.content && message.content.toString().trim() !== '' && message.content.toString().trim().length <= 140;
 }
 
 
 app.post('/messages', (req,res)=> {
-  if(isValidMessage(req,res)) {
+  if(isValidMessage(req.body)) {
     // insert into DB
     const message = {
       name: req.body.name.toString(),

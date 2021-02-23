@@ -29,7 +29,7 @@ body {font-family: "Lato", sans-serif}
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
             <a href="http://ryanbulcher.com/lolpage.html" class="w3-bar-item w3-button">LoL Data</a>
             <a href="#" class="w3-bar-item w3-button">Downloads</a>
-            <a href="#" class="w3-bar-item w3-button">Github</a>
+            <a target="__blank" href="https://github.com/rbulcher" class="w3-bar-item w3-button">Github</a>
             <a href="#" class="w3-bar-item w3-button">Chat Room</a>
         </div>
         </div>
@@ -38,25 +38,30 @@ body {font-family: "Lato", sans-serif}
 
     <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
     <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-    <a href="http://ryanbulcher.com/lolpage.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOL DATA</a>
     <a href="http://ryanbulcher.com/index.html#projects" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROJECTS</a>
     <a href="http://ryanbulcher.com/index.html#resume" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RESUME</a>
     <a href="http://ryanbulcher.com/index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+    <a href="http://ryanbulcher.com/lolpage.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOL DATA</a>
     </div>
+
 
     <!-- parralax landing page-->
     <style>
         .parallax {
           background-image: url('assets/RB_logo_black.png?');
         
-          height: 700px;
-          
+          max-width:100%;
+          max-height:100%;
         
           /* Create the parallax scrolling effect */
-          background-attachment: fixed;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-position-y: bottom;
+           /* Full height */
+  height: 100%; 
+
+/* Create the parallax scrolling effect */
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 
          /* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
          
@@ -68,23 +73,39 @@ body {font-family: "Lato", sans-serif}
     background-size: 100% 100%;
   }
 }
-        </style>            
+
+        </style>  
+
         </head>
-        <body>
+
+        
+        <div class="w3-black w3-center">
+          <div class="parallax">
+            <div style="float: right; height: 85vh; background-color:  black; width:5.3%"> </div>
+            <div style="background-color: black; height: 85vh; width:5.3%;">  </div>
+            <div style="height:15vh;background-color:black;color:white; text-align: center;font-size: 3vw; padding-top: 7px;">Ryan Bulcher
+              <div style="text-align: center; font-size: 2vw; color: white; padding-top: 5px;"> Software Engineer</div>
+          </div>
+          </div>
+  </div>
+            
+            
+          
+       
+
+        <!-- <body>
         
             
         <div class="parallax">
-            <div style="float: right; height:900px; background-color:  black; width:5.3%"></div>
-            <div style="background-color: black; height: 900px; width:5.3%;"> 
-                
+            <div style="float: right; height:600px; background-color:  black; width:5.3%"></div>
+            <div style="background-color: black; height: 600px; width:5.3%;">  
             </div>
-            
         </div>
         <div style="height:400px;background-color:black;color:white; text-align: center;font-size: 60px;padding-top: 20px;">Ryan Bulcher
             <div style="text-align: center; font-size: 35px; color: white; padding-top: 20px;"> Software Engineer</div>
         </div>
         
-        </body>
+        </body> -->
     
         
    
@@ -221,7 +242,9 @@ body {font-family: "Lato", sans-serif}
           <h4 class="w3-opacity"><i>Driven Software Engineer Student who looks to solve complicated problems with efficiency and effective solutions. Understands Object Oriented Programming proficiently and is always actively looking to learn more and excel in the field. Operates in a timely manner, constantly pushes self to thrive under pressure and to complete challenging tasks in a rapid fashion and at a superior quality of performance. 
           </i> </h4>
         </div>
-        <button class="w3-button w3-margin-left w3-white w3-margin-bottom">Download PDF</button>
+        <form method="get" action="assets/resume.pdf" target="__blank">
+          <button type="submit" class="w3-button w3-margin-left w3-white w3-margin-bottom">Download PDF</button>
+       </form>
     </div>
 
     <!-- The Contact Section -->
@@ -261,13 +284,12 @@ body {font-family: "Lato", sans-serif}
     <img src="assets/miami.jpg" class="w3-image w3-greyscale-min" style="width:100%">
 
     <!-- Footer -->
-    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-xxlarge">
+      <a style="color:rgb(61, 57, 57);"_blank" href="https://www.facebook.com/people/Ryan-Bulcher/100017606082197" class="fa fa-facebook w3-hover-opacity"></a>
+      <a style="color:rgb(61, 57, 57);" target="_blank" href="https://www.snapchat.com/add/rya5n12" class="fa fa-snapchat w3-hover-opacity"></a>
+      <a style="color:rgb(61, 57, 57);" target="_blank" href="https://twitter.com/ryan_bulcher" class="fa fa-twitter w3-hover-opacity"></a>
+      <a style="color:rgb(61, 57, 57);" target="_blank" href="https://www.linkedin.com/in/ryan-bulcher-60797a149" class="fa fa-linkedin w3-hover-opacity"></a>
+      <a style="color:rgb(61, 57, 57);" target="_blank" href="https://github.com/rbulcher" class="fa fa-github w3-hover-opacity"></a>
     </footer>
 
     <script> 

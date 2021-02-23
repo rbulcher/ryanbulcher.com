@@ -1,8 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const {MongoClient} = require('mongodb');
-const uri = "mongodb+srv://RyanBulcher:Bulcher01@cluster0.bcshh.mongodb.net/messages?retryWrites=true&w=majority";
+const uri = "mongodb+srv://ryanbulcher:Bulcher01@messagedb.g3una.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const monk = require('monk');
+
+
+
 const nodemailer = require('nodemailer')
 const path = require('path');
 const { env, getMaxListeners } = require('process');

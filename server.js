@@ -3,9 +3,6 @@ const cors = require('cors');
 const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://mainuser:mongodbenter@chatdb.e3hwj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const monk = require('monk');
-//mongodbenter
-
-
 const nodemailer = require('nodemailer')
 const path = require('path');
 const { env, getMaxListeners } = require('process');

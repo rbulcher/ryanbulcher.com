@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const {MongoClient} = require('mongodb');
-const uri = "mongodb+srv://ryanbulcher:Bulcher01@chatdb.e3hwj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const uri = "mongodb+srv://mainuser:mongodbenter@chatdb.e3hwj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const monk = require('monk');
-
+//mongodbenter
 
 
 const nodemailer = require('nodemailer')

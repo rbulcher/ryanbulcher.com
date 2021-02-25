@@ -35,6 +35,7 @@ const mailOptions = {
   subject: req.body.subject,
   text: `Message From ${req.body.person}:\n${req.body.email}\n\n${req.body.message}`
 }
+if(mailOptions.subject != 'undefined'){
 transporter.sendMail(mailOptions, (error, info)=> {
   if(error){
     console.log(error);
@@ -44,7 +45,7 @@ transporter.sendMail(mailOptions, (error, info)=> {
     res.send('success');
   }
 })
-
+}
 });
 
 app.use('/chatroom.html', (req,res) => {

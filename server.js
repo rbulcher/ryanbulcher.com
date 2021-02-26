@@ -35,7 +35,7 @@ const mailOptions = {
   subject: req.body.subject,
   text: `Message From ${req.body.person}:\n${req.body.email}\n\n${req.body.message}`
 }
-if(mailOptions.subject != 'undefined'){
+if(mailOptions.subject != 'undefined' && mailOptions.subject != ''){
 transporter.sendMail(mailOptions, (error, info)=> {
   if(error){
     console.log(error);

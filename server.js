@@ -13,13 +13,6 @@ const db = monk(uri || 'localhost/messager')
 
 const messages = db.get('messages');
 
-app.use(cors());
-app.use(express.json());
-app.use(express.static("express"));
-
-
-app.post('/', function(req,res){
-
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -29,13 +22,21 @@ const transporter = nodemailer.createTransport({
 
 })
 
+app.use(cors());
+app.use(express.json());
+app.use(express.static("express"));
+
+
+app.post('/', function(req,res){
+
+
 const mailOptions = {
   from: req.body.email,
   to: 'contact.bulcher@gmail.com',
   subject: req.body.subject,
   text: `Message From ${req.body.person}:\n${req.body.email}\n\n${req.body.message}`
 }
-if(mailOptions.subject != 'undefined' && mailOptions.subject != ''){
+
 transporter.sendMail(mailOptions, (error, info)=> {
   if(error){
     console.log(error);
@@ -45,7 +46,6 @@ transporter.sendMail(mailOptions, (error, info)=> {
     res.send('success');
   }
 })
-}
 });
 
 app.use('/chatroom.html', (req,res) => {

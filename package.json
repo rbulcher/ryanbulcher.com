@@ -14,6 +14,11 @@
         "monk": "^7.3.3",
         "morgan": "^1.10.0",
         "nodemailer": "^6.4.18",
-        "nodemon": "^2.0.7"
+        "nodemon": "^2.0.7",
+        "plotly.js": "^1.58.4",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-plotly.js": "^2.5.1",
+        "react-scripts": "^4.0.3"
     }
 }

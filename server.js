@@ -22,6 +22,8 @@ const transporter = nodemailer.createTransport({
 
 })
 
+
+
 app.use(cors());
 app.use(express.json());
 app.use(express.static("express"));
@@ -96,3 +98,9 @@ app.use('/', function(req,res){
   });
 const port = 3000;
 app.listen(process.env.PORT || port);
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});

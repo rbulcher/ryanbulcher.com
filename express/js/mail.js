@@ -18,6 +18,7 @@ contactForm.addEventListener('submit', (e)=> {
     xhr.open('POST', '/');
     xhr.setRequestHeader('content-type', 'application/json');
     xhr.onload = function() {
+        console.log("um")
         console.log(xhr.responseText)
         if(xhr.responseText == 'success') {
             alert('Email Sent');

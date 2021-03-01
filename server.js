@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://mainuser:mongodbenter@chatdb.e3hwj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const monk = require('monk');
 const nodemailer = require('nodemailer')
@@ -30,15 +29,13 @@ app.use(express.static("express"));
 
 
 app.post('/', function(req,res){
-
-
 const mailOptions = {
   from: req.body.email,
   to: 'contact.bulcher@gmail.com',
   subject: req.body.subject,
   text: `Message From ${req.body.person}:\n${req.body.email}\n\n${req.body.message}`
 }
-
+if(mailOptions.from !=='' && mailOptions.from !== 'undefined' && mailOptions.from){
 transporter.sendMail(mailOptions, (error, info)=> {
   if(error){
     console.log(error);
@@ -48,6 +45,7 @@ transporter.sendMail(mailOptions, (error, info)=> {
     res.send('success');
   }
 })
+}
 });
 
 app.use('/chatroom.html', (req,res) => {

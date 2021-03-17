@@ -294,9 +294,11 @@ background-size: cover;
     <script src="js/mail.js"></script>
     <script>
       let progress = document.getElementById('progressbar');
-      let totalHeight = document.body.scrollHeight - window.innerHeight;
       window.onscroll = function() {
-        let progressHeight = (window.pageYOffset / totalHeight) * 100;
+        let totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let progressHeight = (winScroll / totalHeight) * 100;
+
         progress.style.height = progressHeight + "%";
       }
     </script>

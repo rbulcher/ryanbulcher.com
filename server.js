@@ -4,9 +4,10 @@ const uri = "mongodb+srv://mainuser:mongodbenter@chatdb.e3hwj.mongodb.net/myFirs
 const monk = require('monk');
 const nodemailer = require('nodemailer')
 const path = require('path');
-const { env, getMaxListeners } = require('process');
-const { cursorTo } = require('readline');
 const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.static("express"));
 
 const db = monk(uri || 'localhost/messager')
 
@@ -22,10 +23,19 @@ const transporter = nodemailer.createTransport({
 })
 
 
+app.get('/lolpage.html', function(req,res) {
+  const API_KEY = "RGAPI-ef9397bf-99b9-4847-b2c4-37bcb707c489"
+  const url = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Doublelift?api_key="
 
-app.use(cors());
-app.use(express.json());
-app.use(express.static("express"));
+  fetch(url + API_KEY)
+    .then(res => res.json())
+    .then(data => {
+            console.log(data);
+           
+        })
+})
+
+
 
 
 app.post('/', function(req,res){

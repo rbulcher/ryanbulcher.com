@@ -42,7 +42,7 @@ body {font-family: "Lato", sans-serif}
       </div>
   
       <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-      <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+      <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:44px">
       <a href="http://ryanbulcher.com/index.html#projects" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROJECTS</a>
       <a href="http://ryanbulcher.com/index.html#resume" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RESUME</a>
       <a href="http://ryanbulcher.com/index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
@@ -82,7 +82,7 @@ background-size: cover;
 @media only screen and (max-device-width: 1366px) {
   .parallax {
     background-attachment: scroll;
-    background-size: 100% 100%;
+    background-position-y: -6vh;
   }
 }
 
@@ -95,8 +95,8 @@ background-size: cover;
           <div class="parallax">
             <div style="float: right; height: 85vh; background-color:  black; width:5.3%"> </div>
             <div style="background-color: black; height: 85vh; width:5.3%;">  </div>
-            <div style="height:15vh;background-color:black;color:white; text-align: center;font-size: 3vw; padding-top: 7px;">Ryan Bulcher
-              <div style="text-align: center; font-size: 2vw; color: white; padding-top: 5px;"> Software Engineer</div>
+            <div class="nameTag">Ryan Bulcher
+              <div class="jobTag"> Software Engineer</div>
           </div>
           </div>
   </div>

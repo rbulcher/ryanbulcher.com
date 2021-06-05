@@ -1,113 +1,122 @@
 .title {
-    text-align: center;
-  }
-  
-  .error-message {
-    
-    color: white;
-    border-radius: 5px;
-    padding: 10px;
-  }
+  text-align: center;
+}
 
-  .header {
-    text-align: center;
-  }
-  
-  .message-form, .loading {
-    width: 50%;
-    margin: 0 auto;
-  }
-  
-  .loading {
-    text-align: center;
-  }
-  
-  .messages {
-    width: 80%;
-    margin: 0 auto;
-  }
-  
-  .messages > div {
-    background: hsl(0, 0%, 95%);
-    padding: 12px;
-    border-radius: 4px;
-  }
-  
-  .messages > div > h3 {
-    word-wrap: break-word;
-  }
-  
-  .messages > div > p {
-    word-wrap: break-word;
-  }
-  
-  .messages > div:not(:last-child) {
-    margin-bottom: 8px;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin: 1em;
-  }
+.error-message {
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
 
-  ::-webkit-scrollbar {
-    width:0;
-    display: none;
-    height: none;
+.header {
+  text-align: center;
+}
+
+.nameTag {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 2.2vh;
+}
+.jobTag {
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  padding-top: 2.2vh;
+  padding-bottom: 8vh;
+}
+.message-form,
+.loading {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.loading {
+  text-align: center;
+}
+
+.messages {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.messages > div {
+  background: hsl(0, 0%, 95%);
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.messages > div > h3 {
+  word-wrap: break-word;
+}
+
+.messages > div > p {
+  word-wrap: break-word;
+}
+
+.messages > div:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  display: none;
+  height: none;
+}
+
+#scrollPath {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 90%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#progressbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 10px;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
   }
-
-  #scrollPath {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 10px;
-    height: 90%;
-    background: rgba(255,255,255,0.05);
+  50% {
+    filter: hue-rotate(360deg);
   }
+}
 
-  #progressbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 10px;
-    background: linear-gradient(to top, #008aff, #00ffe7)
-    ;
-    animation: animate 5s linear infinite;
-
-  }
-
-  @keyframes animate {
-    0%,100%  {
-      filter: hue-rotate(0deg);
-    }
-    50% {
-      filter: hue-rotate(360deg);
-    }
-  }
-
- #progressbar:before {
-
-   content: '';
-   position: absolute;
-   top: 0;
-    right: 0;
-    width: 10px;
-    height: 100%;
-    background: linear-gradient(to top, #008aff, #00ffe7)
-    ;
-    filter: blur(10px);
- }
-
- #progressbar:after {
-
-  content: '';
+#progressbar:before {
+  content: "";
   position: absolute;
   top: 0;
-   right: 0;
-   width: 10px;
-   height: 100%;
-   background: linear-gradient(to top, #008aff, #00ffe7)
-   ;
-   filter: blur(30px);
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+  filter: blur(10px);
+}
+
+#progressbar:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+  filter: blur(30px);
 }

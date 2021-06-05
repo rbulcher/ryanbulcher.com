@@ -1,88 +1,203 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- PAGE settings -->
+    <title>LoL Data Lookup</title>
+    <!-- CSS dependencies -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      type="text/css"
+    />
+    <link rel="icon" href="/assets/RB_logo_black.ico?" type="image/x-icon" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/mobileview.js"></script>
+    <script src="js/lol.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/wireframe.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- PAGE settings -->
-  <title>LoL Data Lookup</title>
-  <!-- CSS dependencies -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-<link rel="icon" href="/assets/RB_logo_black.ico?" type="image/x-icon">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="js/mobileview.js"></script>
-  <script src="js/lol.js" ></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/wireframe.css">
-</head>
-
-
-
-<body>
-
-        <!-- Navbar -->
-        <div class="w3-top">
-            <div class="w3-bar w3-black w3-card">
-                <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-                <a href="http://ryanbulcher.com/index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-                <a href="http://ryanbulcher.com/index.html#projects" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROJECTS</a>
-                <a href="http://ryanbulcher.com/index.html#resume" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RESUME</a>
-                <a href="http://ryanbulcher.com/index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-                <div class="w3-dropdown-hover w3-hide-small">
-                <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="http://ryanbulcher.com/lolpage.html" class="w3-bar-item w3-button">LoL Data</a>
-                    <a href="#" class="w3-bar-item w3-button">Downloads</a>
-                    <a href="https://github.com/rbulcher" class="w3-bar-item w3-button">Github</a>
-                    <a href="http://ryanbulcher.com/chatroom.html" class="w3-bar-item w3-button">Message Board</a>
-                </div>
-                </div>
-            </div>
-            </div>
-
-            <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-        <a href="http://ryanbulcher.com/lolpage.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOL DATA</a>
-        <a href="http://ryanbulcher.com/index.html#projects" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROJECTS</a>
-        <a href="http://ryanbulcher.com/index.html#resume" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RESUME</a>
-        <a href="http://ryanbulcher.com/index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
-        <a href="http://ryanbulcher.com/chatroom.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MESSAGE BOARD</a>
-        <a href="http://www.ryanbulcher.com/build/" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">STOCK API</a>
+  <body>
+    <!-- Navbar -->
+    <div class="w3-top">
+      <div class="w3-bar w3-black w3-card">
+        <a
+          class="
+            w3-bar-item
+            w3-button
+            w3-padding-large
+            w3-hide-medium
+            w3-hide-large
+            w3-right
+          "
+          href="javascript:void(0)"
+          onclick="myFunction()"
+          title="Toggle Navigation Menu"
+          ><i class="fa fa-bars"></i
+        ></a>
+        <a
+          href="https://ryanbulcher.herokuapp.com/index.html"
+          class="w3-bar-item w3-button w3-padding-large"
+          >HOME</a
+        >
+        <a
+          href="https://ryanbulcher.herokuapp.com/index.html#projects"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+          >PROJECTS</a
+        >
+        <a
+          href="https://ryanbulcher.herokuapp.com/index.html#resume"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+          >RESUME</a
+        >
+        <a
+          href="https://ryanbulcher.herokuapp.com/index.html#contact"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+          >CONTACT</a
+        >
+        <div class="w3-dropdown-hover w3-hide-small">
+          <button class="w3-padding-large w3-button" title="More">
+            MORE <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a
+              href="https://ryanbulcher.herokuapp.com/lolpage.html"
+              class="w3-bar-item w3-button"
+              >LoL Data</a
+            >
+            <a href="#" class="w3-bar-item w3-button">Downloads</a>
+            <a href="https://github.com/rbulcher" class="w3-bar-item w3-button"
+              >Github</a
+            >
+            <a
+              href="https://ryanbulcher.herokuapp.com/chatroom.html"
+              class="w3-bar-item w3-button"
+              >Message Board</a
+            >
+          </div>
         </div>
+      </div>
+    </div>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <div class="py-5 text-center text-white h-100 align-items-center d-flex" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(https://static.pingendo.com/cover-bubble-dark.svg);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="display-1">Enter League of Legends<br>Name</h1>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="p-2">
-                <form>
-                  <input type="text" name="n2" id="n2" placeholder="Username (NA ONLY)">
-                </form>
+    <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+    <div
+      id="navDemo"
+      class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top"
+      style="margin-top: 46px"
+    >
+      <a
+        href="https://ryanbulcher.herokuapp.com/lolpage.html"
+        class="w3-bar-item w3-button w3-padding-large"
+        onclick="myFunction()"
+        >LOL DATA</a
+      >
+      <a
+        href="https://ryanbulcher.herokuapp.com/index.html#projects"
+        class="w3-bar-item w3-button w3-padding-large"
+        onclick="myFunction()"
+        >PROJECTS</a
+      >
+      <a
+        href="https://ryanbulcher.herokuapp.com/index.html#resume"
+        class="w3-bar-item w3-button w3-padding-large"
+        onclick="myFunction()"
+        >RESUME</a
+      >
+      <a
+        href="https://ryanbulcher.herokuapp.com/index.html#contact"
+        class="w3-bar-item w3-button w3-padding-large"
+        onclick="myFunction()"
+        >CONTACT</a
+      >
+      <a
+        href="https://ryanbulcher.herokuapp.com/chatroom.html"
+        class="w3-bar-item w3-button w3-padding-large"
+        onclick="myFunction()"
+        >MESSAGE BOARD</a
+      >
+      <a
+        href="https://ryanbulcher.herokuapp.com/build/"
+        class="w3-bar-item w3-button w3-padding-large"
+        onclick="myFunction()"
+        >STOCK API</a
+      >
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <div
+      class="py-5 text-center text-white h-100 align-items-center d-flex"
+      style="
+        background-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+          ),
+          url(https://static.pingendo.com/cover-bubble-dark.svg);
+        background-position: center center, center center;
+        background-size: cover, cover;
+        background-repeat: repeat, repeat;
+      "
+    >
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="display-1">Enter League of Legends<br />Name</h1>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="p-2">
+                  <form>
+                    <input
+                      type="text"
+                      name="n2"
+                      id="n2"
+                      placeholder="Username (NA ONLY)"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-2 d-flex">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <button
+                  type="button"
+                  onclick="getLoLData();"
+                  style="
+                    background-image: linear-gradient(
+                      to bottom,
+                      rgba(0, 0, 0, 0.2),
+                      rgba(0, 0, 0, 0.8)
+                    );
+                    background-position: top left;
+                    background-size: 100%;
+                    background-repeat: repeat;
+                    transform: scale(2);
+                  "
+                  class="text-white w-25"
+                >
+                  Search
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row m-2 d-flex">
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-md-12"><button type="button" onclick="getLoLData();" style="	background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));	background-position: top left;	background-size: 100%;	background-repeat: repeat;	transform:  scale(2);" class="text-white w-25" >Search</button></div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
- 
-</body>
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+  </body>
 </html>

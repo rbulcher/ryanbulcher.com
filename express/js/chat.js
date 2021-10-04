@@ -46,7 +46,6 @@ function listAllMessages() {
   fetch(API_URL)
     .then((response) => response.json())
     .then((messages) => {
-      console.log(messages);
       messages.reverse();
       messages.forEach((message) => {
         const div = document.createElement("div");
